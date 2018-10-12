@@ -1,0 +1,45 @@
+#1
+-- Comments
+grep '^Z' cities.txt 
+
+#2
+-- Comments
+grep 'gan$' cities.txt 
+
+#3
+-- Comments
+grep '^[ADE]' cities.txt
+
+#4
+-- Comments
+grep '\<.ar' cities.txt
+
+
+#5
+-- Comments
+grep '^[^C]' cities.txt
+
+
+#6
+-- Comments
+grep -E '^.[^ ]{13,}' cities.txt
+
+
+#7
+-- Comments
+grep -c '^B' cities.txt
+
+
+#8
+-- Comments
+grep -o 'd' cities.txt | wc -l
+
+#9
+-- Comments
+grep -iE '(.)\1$' cities.txt
+
+#10
+--Comments
+grep -iE '^(.)(.)(.)\2\1$' cities.txt 
+Extra: grep -iEw "{$(rev < cities.txt)}" cities.txt
+
