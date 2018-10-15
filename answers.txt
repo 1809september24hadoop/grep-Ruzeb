@@ -1,45 +1,51 @@
+--Grep Assignment--
+
 #1
--- Comments
+-- Look for words that have Z in the beginning of the line
 grep '^Z' cities.txt 
 
 #2
--- Comments
+-- Look for words that match 'gan' at the end of the line
 grep 'gan$' cities.txt 
 
 #3
--- Comments
+-- find any lines starting with A, D, or E
 grep '^[ADE]' cities.txt
 
 #4
--- Comments
+-- search for lines precede 'ar' with any letter
 grep '\<.ar' cities.txt
 
 
 #5
--- Comments
+-- find any lines not starting with C
 grep '^[^C]' cities.txt
 
 
 #6
--- Comments
+-- find any lines that are 14 or more characters. [^ ] used for ignoring spaces
 grep -E '^.[^ ]{13,}' cities.txt
 
 
 #7
--- Comments
+-- count lines starting with B
 grep -c '^B' cities.txt
 
 
 #8
--- Comments
+-- count how many 'd' contained in the file. -o used to single out the 'd' on each line
 grep -o 'd' cities.txt | wc -l
 
 #9
--- Comments
-grep -iE '(.)\1$' cities.txt
+-- find lines ending with two repeated letters
+grep -E '(.)\1$' cities.txt
 
 #10
---Comments
-grep -iE '^(.)(.)(.)\2\1$' cities.txt 
+-- find lines containing a palindrome of length 5
+grep -iE '^(.)(.).\2\1$' cities.txt
+
+-- using bash programming and variables, match each line of the reversed file
+-- with the original file and only output whole word matching lines
+-- slow because it iterates through file for each line
 Extra: grep -iEw "{$(rev < cities.txt)}" cities.txt
 
